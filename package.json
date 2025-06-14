@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node --require ./src/instrumentation.ts ./src/app.ts"
+    "start": "ts-node --require ./src/instrumentation.ts ./src/app.ts",
+    "otel:up": "docker compose -f docker/docker-compose.yml up -d",
+    "otel:down": "docker compose -f docker/docker-compose.yml down"
   },
   "keywords": [],
   "author": "",
