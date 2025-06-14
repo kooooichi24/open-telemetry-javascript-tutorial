@@ -6,6 +6,7 @@ See the tutorial at https://opentelemetry.io/docs/languages/js/
 
 ```bash
 npm install
+npm run otel:up
 npm run start
 ```
 
