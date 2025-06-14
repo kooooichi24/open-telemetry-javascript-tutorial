@@ -26,3 +26,26 @@ The OpenTelemetry Auto-instrumentations is a collection of libraries that can be
 | @opentelemetry/api | **OpenTelemetry API for JavaScript** <br> This package provides everything needed to interact with the OpenTelemetry API, including all TypeScript interfaces, enums, and no-op implementations. It is intended for use both on the server and in the browser. | https://www.npmjs.com/package/@opentelemetry/api |
 | @opentelemetry/sdk-node | **OpenTelemetry SDK for Node.js** <br> This package provides the full OpenTelemetry SDK for Node.js including tracing and metrics. | https://www.npmjs.com/package/@opentelemetry/sdk-node |
 | @opentelemetry/auto-instrumentations-node | **OpenTelemetry Meta Packages for Node** <br> This module provides a way to auto instrument any Node application to capture telemetry from a number of popular libraries and frameworks. You can export the telemetry data in a variety of formats. Exporters, samplers, and more can be configured via environment variables. The net result is the ability to gather telemetry data from a Node application without any code changes. | https://www.npmjs.com/package/@opentelemetry/auto-instrumentations-node |
+
+### How to confirm the traces in Jaeger UI
+
+Please access to Jaeger UI at http://localhost:16686/
+
+### How to confirm the traces in OpenTelemetry Collector
+
+```bash
+npm run otel-collector:logs
+```
+
+### Data Flow
+
+```mermaid
+sequenceDiagram
+    participant App as Application
+    participant Collector as OpenTelemetry Collector
+    participant Jaeger as Jaeger
+
+    App->>Collector: Send telemetry via OTLP HTTP
+    Collector->>Jaeger: Send traces via OTLP/HTTP
+    Note right of Jaeger: Visualize traces in Jaeger UI
+```
