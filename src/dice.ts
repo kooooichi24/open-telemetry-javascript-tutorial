@@ -1,4 +1,8 @@
 /*dice.ts*/
+import { trace, Span } from '@opentelemetry/api';
+
+const tracer = trace.getTracer('dice-lib');
+
 function rollOnce(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
