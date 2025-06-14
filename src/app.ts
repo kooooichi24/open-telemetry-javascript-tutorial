@@ -1,16 +1,22 @@
 /*app.ts*/
 import express, { Express } from 'express';
+import { rollTheDice } from './dice';
 
 const PORT: number = parseInt(process.env.PORT || '8080');
 const app: Express = express();
 
-function getRandomNumber(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
 app.get('/rolldice', (req, res) => {
-  res.send(getRandomNumber(1, 6).toString());
+  const rolls = req.query.rolls ? parseInt(req.query.rolls.toString()) : NaN;
+  if (isNaN(rolls)) {
+    res
+      .status(400)
+      .send("Request parameter 'rolls' is missing or not a number.");
+    return;
+  }
+  res.send(JSON.stringify(rollTheDice(rolls, 1, 6)));
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Listening for requests on http://localhost:${PORT}`);
