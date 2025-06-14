@@ -1,4 +1,3 @@
-/*app.ts*/
 import express, { Express } from 'express';
 import { rollTheDice } from './dice';
 

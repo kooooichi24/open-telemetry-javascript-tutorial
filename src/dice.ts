@@ -1,4 +1,3 @@
-/*dice.ts*/
 import { trace, Span } from '@opentelemetry/api';
 
 const tracer = trace.getTracer('dice-lib');
