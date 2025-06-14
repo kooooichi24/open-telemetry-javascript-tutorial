@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node --require ./src/instrumentation.ts ./src/app.ts",
     "otel:up": "docker compose -f docker/docker-compose.yml up -d",
-    "otel:down": "docker compose -f docker/docker-compose.yml down"
+    "otel:down": "docker compose -f docker/docker-compose.yml down",
+    "otel:logs": "docker compose -f docker/docker-compose.yml logs otel-collector"
   },
   "keywords": [],
   "author": "",
