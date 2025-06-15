@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node --require ./instrumentation.ts ./src/app.ts",
-    "otel:up": "docker compose -f docker/docker-compose.yml up -d",
-    "otel:down": "docker compose -f docker/docker-compose.yml down",
-    "otel-collector:logs": "docker compose -f docker/docker-compose.yml logs otel-collector"
+    "otel:up": "docker compose -p open-telemetry-javascript-tutorial -f docker/docker-compose.yml up -d",
+    "otel:down": "docker compose -p open-telemetry-javascript-tutorial -f docker/docker-compose.yml down",
+    "otel-collector:logs": "docker compose -p open-telemetry-javascript-tutorial -f docker/docker-compose.yml logs otel-collector"
   },
   "keywords": [],
   "author": "",
